@@ -1,0 +1,17 @@
+hr.rounded {
+    border-top: 5px solid #000000;
+    margin: 0px !important;
+    padding: 0px !important;
+    /* border-radius: 5px; */
+  }
+
+  .margin-icon-nav {
+    margin-top: -3px;
+    margin-left: 10px;margin-right: 10px;
+  }
+
+  @media (max-width: 767px) { 
+      .dis-none{
+        display: none !important;
+      }
+   }

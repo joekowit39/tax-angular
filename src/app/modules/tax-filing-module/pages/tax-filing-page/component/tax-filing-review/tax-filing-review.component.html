@@ -1,0 +1,139 @@
+<div class="container text-center">
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-12">
+      <div class="border-form-input mb-3">
+        <div class="ml-4 mr-4 mt-4">
+
+          <div class="row">
+            <p class="pl-3 titel-txt-content">
+              Tax Filing Detail
+            </p>
+          </div>
+
+          <hr class="line-content">
+
+          <div class="row mt-2">
+            <div class="col-lg-3 col-md-12 pl-3">
+              <p class="d-flex justify-content-start txt-content">
+                Type of filing
+              </p>
+            </div>
+            <div class="col-lg-9 col-md-12">
+              <p class="d-flex justify-content-start txt-content">
+                {{itemTax.filingType}}
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-3 col-md-12 pl-3">
+              <p class="d-flex justify-content-start txt-content">
+                VAT Month
+              </p>
+            </div>
+            <div class="col-lg-9 col-md-12">
+              <p class="d-flex justify-content-start txt-content">
+                {{itemTax.month}} {{itemTax.year}}
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="ml-4 mr-4">
+
+          <div class="row">
+            <p class="pl-3 titel-txt-content">
+              Tax Conputation
+            </p>
+          </div>
+
+          <hr class="line-content">
+
+          <div class="row mt-2">
+            <div class="col-8 pl-3">
+              <p class="d-flex justify-content-start txt-content text-left">
+                Total value of taxable electronic service exclusive of VAT
+              </p>
+            </div>
+            <div class="col-4">
+              <p class="d-flex justify-content-start txt-content">
+                {{itemTax.saleAmount |
+                  number:'1.2-2'}} THB
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-8 pl-3">
+              <p class="d-flex justify-content-start txt-content text-left">
+                Total VAT to be remitted <br>
+                (7% of Total value of taxable electronic service exclusive of VAT)
+              </p>
+            </div>
+            <div class="col-4 m-auto">
+              <p class="d-flex justify-content-start txt-content">
+                {{itemTax.taxAmount |
+                  number:'1.2-2'}} THB
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8 pl-3">
+              <p class="d-flex justify-content-start txt-content">
+                Total Amount Payable
+              </p>
+            </div>
+            <div class="col-4">
+              <p class="d-flex justify-content-start txt-content">
+                {{itemTax.totalAmount |
+                  number:'1.2-2'}} THB
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="ml-4 mr-4 mb-4">
+
+          <div class="row">
+            <p class="pl-3 titel-txt-content">
+              Declaration
+            </p>
+          </div>
+
+          <hr class="line-content ">
+
+          <div class="row mt-2">
+            <div class="col pl-3">
+              <p class="d-flex justify-content-start txt-content">
+                I hereby certify that information given above anr true and correct and agree to be bound by such information.
+              </p>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+      <div class="row mb-5 ml-2">
+        <div class="col">
+          <button class="btn btn-secondary btn" (click)="open(content)">Confirm and Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Success</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <p>{{itemTax | json}}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div>
+  </ng-template>
+</div>
